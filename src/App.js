@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import FileUpload from '../components/FileUpload';
-import DataList from '../components/DataList';
-import SearchBar from '../components/SearchBar';
+import FileUpload from './components/FileUpload';
+import DataList from './components/DataList';
+import SearchBar from './components/SearchBar';
 import { FlexboxGrid } from 'rsuite';
 
 const App = () => {
