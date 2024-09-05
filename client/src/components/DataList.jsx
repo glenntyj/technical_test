@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, Pagination  } from 'rsuite';
 
 const { Column, HeaderCell, Cell } = Table;
@@ -21,7 +21,7 @@ const DataList = ({ data }) => {
   return (
     <div>
       <Table
-        height={420}
+        height={410}
         data={partialData}
         bordered
       >

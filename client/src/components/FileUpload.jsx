@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { Button, FlexboxGrid, Uploader } from 'rsuite';
-import axios from 'axios';
 
 const FileUpload = ({ onUpload }) => {
   const [file, setFile] = useState(null);
@@ -21,6 +20,7 @@ const FileUpload = ({ onUpload }) => {
         onSuccess={(data)=> {
           onUpload(data);
           setFile([]);
+          setUploading(false);
         }}
         onError={(error)=>console.log('Error uploading file:', error)}
         ref={uploader} 
@@ -34,7 +34,10 @@ const FileUpload = ({ onUpload }) => {
       <FlexboxGrid justify='end'>
         <Button 
           appearance='primary'
-          onClick={()=>uploader.current.start()} 
+          onClick={()=>{
+            uploader.current.start();
+            setUploading(true);
+          }} 
           disabled={uploading}
         >
           {uploading ? 'Uploading...' : 'Upload'}
